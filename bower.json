@@ -1,9 +1,9 @@
 {
-  "name": "ct-jquery-aria-hidden-breakrange",
-  "description": "Control an element's `aria-hidden` property across different breakpoints",
-  "version": "0.0.1",
+  "name": "ct-jquery-ariaHiddenBreakrange",
+  "description": "Control an element's aria-hidden property across different breakpoints.",
+  "version": "1.0.0",
   "main": "dist",
-  "license": "",
+  "license": "All rights reserved",
   "ignore": [],
   "keywords": [],
   "authors": [
@@ -12,16 +12,18 @@
       "email": "dan.smith@chrometoaster.com"
     }
   ],
-  "homepage": "http://github.com/chrometoasters/ct-jquery-aria-hidden-breakrange",
+  "homepage": "http://github.com/chrometoasters/ct-jquery-ariaHiddenBreakrange",
   "repository": {
     "type": "github",
-    "url": "https://github.com/chrometoastersct-jquery-aria-hidden-breakrange/tree/master"
+    "url": "http://github.com/chrometoasters/ct-jquery-ariaHiddenBreakrange.git"
   },
   "dependencies": {
-    "jquery": "1.10.1"
+    "jquery": "1.10.1",
+    "enquire.js": "https://github.com/WickyNilliams/enquire.js.git#2.1.0"
   },
   "devDependencies": {
-    "qunit": "https://github.com/components/qunit.git#v1.11.0"
+    "qunit": "https://github.com/components/qunit.git#v1.11.0",
+    "susy": "https://github.com/ericam/susy.git#v1.0.9"
   },
   "private": true
 }

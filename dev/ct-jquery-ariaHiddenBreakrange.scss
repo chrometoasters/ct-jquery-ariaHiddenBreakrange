@@ -1,0 +1,47 @@
+// Compass plugins (Ruby Gems installed on the system)
+// Note that these must also be listed in the Gemfile and grunt-compass-config.json
+@import "compass"; // or grab what you need, eg: /css3/opacity
+
+// Grid System
+@import "susy/sass/susy";
+
+// Functions
+@import "functions";
+
+// Import plugin breakpoints
+@import "breakpoints";
+
+// Import plugin styles
+@import "aria";
+
+.m-test--breakpoint {
+    &:before {
+        content: "mobile";
+
+        @include at-breakpoint( $bp-tablet lt-ie9 12 ) {
+            content: "tablet";
+        }
+        @include at-breakpoint( $bp-desktop lt-ie9 12 ) {
+            content: "desktop";
+        }
+        @include at-breakpoint( $bp-desktop-wide lt-ie9 12 ) {
+            content: "desktop-wide";
+        }
+    }
+}
+
+.m-test--dimensions {
+    &:before {
+        content: "";
+
+        @include at-breakpoint( $bp-tablet lt-ie9 12 ) {
+            content: "#{$bp-tablet}, (#{$bp-tablet_px})";
+        }
+        @include at-breakpoint( $bp-desktop lt-ie9 12 ) {
+            content: "#{$bp-desktop}, (#{$bp-desktop_px})";
+        }
+        @include at-breakpoint( $bp-desktop-wide lt-ie9 12 ) {
+            content: "#{$bp-desktop-wide}, (#{$bp-desktop-wide_px})";
+        }
+    }
+}

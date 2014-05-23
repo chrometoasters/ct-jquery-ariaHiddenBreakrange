@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js lt-ie10"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <title>ct-jquery-ariaHiddenBreakrange.js</title>
+    <link rel="stylesheet" href="../dist/ct-jquery-ariaHiddenBreakrange.css" />
+    <style>
+      /* add .css styline here */
+    </style>
+  </head>
+  <body>
+    <h1>ct-jquery-ariaHiddenBreakrange.js</h1>
+    <div id="m-test">
+      <p>Current breakpoint: <strong class="m-test--breakpoint"></strong> <span class="m-test--dimensions"></span></p>
+      <h2>Breakranges which <em>aren't</em> hidden at this breakpoint:</h2>
+      <ol>
+        <li data-ariaHiddenBreakrange="mobile">mobile</li>
+        <li data-ariaHiddenBreakrange="mobile,tablet">mobile,tablet</li>
+        <li data-ariaHiddenBreakrange="tablet">tablet</li>
+        <li data-ariaHiddenBreakrange="mobile,tablet,desktop">mobile,tablet,desktop</li>
+        <li data-ariaHiddenBreakrange="tablet,desktop">tablet,desktop</li>
+        <li data-ariaHiddenBreakrange="desktop">desktop</li>
+        <li data-ariaHiddenBreakrange="tablet,desktop,desktop-wide">tablet,desktop,desktop-wide</li>
+        <li data-ariaHiddenBreakrange="desktop,desktop-wide">desktop,desktop-wide</li>
+        <li data-ariaHiddenBreakrange="desktop-wide">desktop-wide</li>
+      </ol>
+    </div>
+
+    <script src="../bower_components/jquery/jquery.min.js"></script>
+    <script src="../bower_components/enquire.js/dist/enquire.min.js"></script>
+    <script src="../dev/ct-jquery-ariaHiddenBreakrange.js"></script>
+    <script>
+      // Monkey patch:
+      // to allow unmatch (which usually runs on breakpoint transition) to run on DOM load as well
+      // https://github.com/WickyNilliams/enquire.js/issues/86#issuecomment-28665171
+      enquire.registerImmediate = function(query, options) {
+          options.setup = options.unmatch;
+          return this.register(query, options);
+      };
+
+      $('html')
+        .removeClass('no-js')
+        .addClass('js');
+
+      // Setup
+      $(document).ready( function() {
+        $('[data-ariaHiddenBreakrange]').ariaHiddenBreakrange();
+      });
+    </script>
+  </body>
+</html>

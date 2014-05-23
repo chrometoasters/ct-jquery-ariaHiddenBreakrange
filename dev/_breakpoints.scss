@@ -1,0 +1,13 @@
+/*
+Breakpoints
+*/
+
+// breakpoints calculated via mixins.scss (imported above)
+$bp-tablet_px: 768px;
+$bp-tablet: em($bp-tablet_px); // portrait
+
+$bp-desktop_px: 980px;
+$bp-desktop: em($bp-desktop_px);
+
+$bp-desktop-wide_px: 1256px;
+$bp-desktop-wide: em($bp-desktop-wide_px);

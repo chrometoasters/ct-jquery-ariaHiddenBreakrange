@@ -1,0 +1,25 @@
+/*
+Functions: em
+
+Src: <http://www.pjmccormick.com/sweet-sass-function-convert-px-em>
+
+Usage:
+
+* `some_css_property: em($targetSize, $context);`
+
+Parameters:
+
+* `$targetSize` - a pixel sizing dimension for an element
+* `$context` - the font-size, defaults to the `$base-font-size`
+
+~
+
+Styleguide 100.1
+*/
+
+@function em($target, $context: $base-font-size) {
+    @if $target == 0 {
+        @return 0;
+    }
+   @return $target / $context + 0em;
+}

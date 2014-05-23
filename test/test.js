@@ -2,7 +2,7 @@
 /*jshint browser:true, jquery:true, strict:true, devel:true */
 /*global QUnit:true, equal:true, module, test */
 
-// Unit tests for the state jQuery plugin
+// Unit tests for ct-jquery-ariaHiddenBreakrange.js
 // Author: dan.smith@chrometoaster.com
 // equal( test, expected value, string to display in output )
 //
@@ -17,9 +17,7 @@ QUnit.begin( function() {
     testvars.container = '#qunit-fixture';
 
     testvars.id = 'TOOD';
-
-    // TODO
-    // Add test for focus (working in demo)
+    testvars.target = '#TODO';
 
 });
 
@@ -46,9 +44,7 @@ module("Set up", {
     },
     teardown: function() {
         "use strict";
-
-        // Destroy to ensure no cookie is remaining
-        $(testvars.module).state('destroy');
+        //
     }
 });
 
@@ -64,4 +60,39 @@ test("TODO", function() {
         ''
     );
 
+});
+
+/*
+-------------------------------------------------------------------
+Destroy
+-------------------------------------------------------------------
+*/
+
+module("Destroy", {
+
+    setup: function() {
+        "use strict";
+
+        // Setup
+        $(testvars.target).ct-jquery-ariaHiddenBreakrange({
+            // options
+        });
+
+        // Destroy
+        $(testvars.target).ct-jquery-ariaHiddenBreakrange('destroy');
+    },
+    teardown: function() {
+        "use strict";
+        //
+    }
+});
+
+test("TESTNAME", function() {
+    "use strict";
+
+    equal(
+        TODO,
+        true,
+        ''
+    );
 });
