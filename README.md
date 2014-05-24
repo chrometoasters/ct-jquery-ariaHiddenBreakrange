@@ -78,10 +78,3 @@ As this is the first release of this plugin there are some limitations:
 1. the breakrange keywords are device specific and can't be changed
 1. tests must be run and passed at each breakpoint via the jResize toolbar
 1. the script assumes a base font size of `16px`
-=======
-ct-jquery-aria-hidden-breakrange
-================================
-
-Control an element's aria-hidden property across different breakpoints. 
-
-__Please note: this plugin is optimised for internal Chrometoaster use. YMMV.__
