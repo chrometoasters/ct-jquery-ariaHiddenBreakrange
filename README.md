@@ -1,6 +1,6 @@
 # ct-jquery-ariaHiddenBreakrange
 
-Accessibly control an element's visibility across multiple breakpoints.
+Accessibly control an element's visibility across a range of breakpoints.
 
 __Please note: this plugin is optimised for internal Chrometoaster use. YMMV.__
 
