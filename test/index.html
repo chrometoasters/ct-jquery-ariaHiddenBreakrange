@@ -16,6 +16,11 @@
     <!-- Browserscope integration -->
     <!--<script src="test-to-browserscope.js"></script>-->
     <style>
+        /*
+          DS: hide failing tests until they are manually expanded,
+          so that the user can see at a glance which modules pass
+          at each breakpoint.
+        */
         #qunit-tests .fail .qunit-assert-list {
             display: none;
         }
