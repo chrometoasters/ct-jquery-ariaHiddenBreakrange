@@ -2,7 +2,9 @@
 Breakpoints
 */
 
-// breakpoints calculated via mixins.scss (imported above)
+// $bp-mobile_px: n/a // mobile-first
+// $bp-mobile: n/a // mobile-first
+
 $bp-tablet_px: 768px;
 $bp-tablet: em($bp-tablet_px); // portrait
 

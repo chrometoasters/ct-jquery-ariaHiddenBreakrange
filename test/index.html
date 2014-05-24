@@ -7,7 +7,9 @@
     <link href="../bower_components/qunit/qunit.css" rel="stylesheet" />
     <script src="../bower_components/qunit/qunit.js"></script>
     <!-- Plugin to test + jQuery version the code was developed for -->
+    <link rel="stylesheet" href="../dist/ct-jquery-ariaHiddenBreakrange.css" />
     <script src="../bower_components/jquery/jquery.min.js"></script>
+    <script src="../bower_components/enquire.js/dist/enquire.min.js"></script>
     <script src="../dev/ct-jquery-ariaHiddenBreakrange.js"></script>
     <!-- QUnit tests -->
     <script src="test.js"></script>
@@ -21,7 +23,17 @@
 
     <div id="qunit-fixture">
 
-        <!-- Add Test HTML here -->
+      <ol>
+        <li data-ariaHiddenBreakrange="mobile">mobile</li>
+        <li data-ariaHiddenBreakrange="mobile,tablet">mobile,tablet</li>
+        <li data-ariaHiddenBreakrange="tablet">tablet</li>
+        <li data-ariaHiddenBreakrange="mobile,tablet,desktop">mobile,tablet,desktop</li>
+        <li data-ariaHiddenBreakrange="tablet,desktop">tablet,desktop</li>
+        <li data-ariaHiddenBreakrange="desktop">desktop</li>
+        <li data-ariaHiddenBreakrange="tablet,desktop,desktop-wide">tablet,desktop,desktop-wide</li>
+        <li data-ariaHiddenBreakrange="desktop,desktop-wide">desktop,desktop-wide</li>
+        <li data-ariaHiddenBreakrange="desktop-wide">desktop-wide</li>
+      </ol>
 
     </div>
 

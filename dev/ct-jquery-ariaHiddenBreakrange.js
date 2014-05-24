@@ -191,6 +191,18 @@
 
                         if ( media_query ) {
 
+                            // Monkey patch:
+                            // to allow unmatch (which usually runs on breakpoint transition) to run on DOM load as well
+                            // https://github.com/WickyNilliams/enquire.js/issues/86#issuecomment-28665171
+                            if ( typeof enquire.registerImmediate === 'undefined' ) {
+
+                              enquire.registerImmediate = function(query, options) {
+                                  options.setup = options.unmatch;
+                                  return this.register(query, options);
+                              };
+
+                            }
+
                             enquire.registerImmediate( media_query, {
 
                                 // when within the breakrange
@@ -318,11 +330,6 @@
                 return ( target/context + 'em' );
             },
 
-            // called by $(el).ariaHiddenBreakrange('_METHOD_NAME') or $(el).ariaHiddenBreakrange('_METHOD_NAME', ARGUMENTS);
-            //_METHOD_NAME: function(ARGUMENTS) {
-                // do something
-            //}
-
             // ADDERS
             // ...
 
@@ -344,9 +351,7 @@
                         //data = $this.data('ariaHiddenBreakrange');
 
                     // Revert HTML
-                    //if ( data && data.PROPERTY ) {
-                    //    $this.state('_METHOD_NAME');
-                    //}
+                    $this.removeattr('aria-hidden');
 
                     // Unbind namespaced events
                     //$(SOME_ELEMENT).ariaHiddenBreakrange('.ariaHiddenBreakrange');

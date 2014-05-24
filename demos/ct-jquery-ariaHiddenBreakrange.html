@@ -7,16 +7,16 @@
   <head>
     <meta charset="utf-8">
     <title>ct-jquery-ariaHiddenBreakrange.js</title>
-    <link rel="stylesheet" href="../dist/ct-jquery-ariaHiddenBreakrange.css" />
+    <link rel="stylesheet" href="../dist/ct-jquery-ariaHiddenBreakrange-demo.css" /><!-- note: please exclude -demo suffix in production usage -->
     <style>
-      /* add .css styline here */
+
     </style>
   </head>
   <body>
     <h1>ct-jquery-ariaHiddenBreakrange.js</h1>
     <div id="m-test">
-      <p>Current breakpoint: <strong class="m-test--breakpoint"></strong> <span class="m-test--dimensions"></span></p>
-      <h2>Breakranges which <em>aren't</em> hidden at this breakpoint:</h2>
+      <p class="m-test--current">Current breakpoint: <strong class="m-test--breakpoint"></strong> <span class="m-test--dimensions"></span></p>
+      <h2>Breakranges which are <span aria-hidden="true">hidden</span> / <span aria-hidden="false">visible</span> at this breakpoint:</h2>
       <ol>
         <li data-ariaHiddenBreakrange="mobile">mobile</li>
         <li data-ariaHiddenBreakrange="mobile,tablet">mobile,tablet</li>
@@ -34,14 +34,6 @@
     <script src="../bower_components/enquire.js/dist/enquire.min.js"></script>
     <script src="../dev/ct-jquery-ariaHiddenBreakrange.js"></script>
     <script>
-      // Monkey patch:
-      // to allow unmatch (which usually runs on breakpoint transition) to run on DOM load as well
-      // https://github.com/WickyNilliams/enquire.js/issues/86#issuecomment-28665171
-      enquire.registerImmediate = function(query, options) {
-          options.setup = options.unmatch;
-          return this.register(query, options);
-      };
-
       $('html')
         .removeClass('no-js')
         .addClass('js');
