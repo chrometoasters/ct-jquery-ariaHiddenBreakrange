@@ -325,9 +325,9 @@
             _em: function(target_px) { // based on our .scss function
                 var context = 16, // basefont_size
                     target = target_px.replace('px', ''),
-                    target = parseInt(target, 10);
+                    target2 = parseInt(target, 10);
 
-                return ( target/context + 'em' );
+                return ( target2/context + 'em' );
             },
 
             // ADDERS
