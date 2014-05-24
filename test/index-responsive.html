@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ct-jquery-ariaHiddenBreakrange Test Viewer</title>
+        <link rel="stylesheet" href="../bower_components/jResize/css/global.css" />
+        <script src="../bower_components/jquery/jquery.min.js"></script>
+        <script src="../bower_components/jResize/js/jresize.js"></script>
+    </head>
+    <body>
+        <iframe src="index.html" style="width:100%;display:block;border:0;height:1000px;"></iframe>
+        <script>
+        $(function() {
+            "use strict";
+
+            $.jResize({
+                viewPortSizes   : ['1256px', '1255px', '979px', '767px'], // ViewPort Widths
+                backgroundColor : '444', // HEX Code
+                fontColor       : 'FFF' // HEX Code
+            });
+
+            // DS: reload iframe after a jResize breakpoint has been selected
+            // so that the unit tests can rerun at the new viewport width
+
+            $('.viewlist').on('click', 'li', function() {
+
+                var $iframe = $('#resizer > iframe'),
+                    src = $iframe.attr('src');
+
+                setTimeout( function() {
+
+                    $iframe.attr('src', src);
+
+                }, 500); // 300ms is the duration of the jResize slideDown
+
+            });
+        });
+        </script>
+    </body>
+</html>

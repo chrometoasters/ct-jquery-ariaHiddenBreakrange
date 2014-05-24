@@ -351,7 +351,7 @@
                         //data = $this.data('ariaHiddenBreakrange');
 
                     // Revert HTML
-                    $this.removeattr('aria-hidden');
+                    $this.removeAttr('aria-hidden');
 
                     // Unbind namespaced events
                     //$(SOME_ELEMENT).ariaHiddenBreakrange('.ariaHiddenBreakrange');

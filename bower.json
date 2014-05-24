@@ -23,7 +23,8 @@
   },
   "devDependencies": {
     "qunit": "https://github.com/components/qunit.git#v1.11.0",
-    "susy": "https://github.com/ericam/susy.git#v1.0.9"
+    "susy": "https://github.com/ericam/susy.git#v1.0.9",
+    "jResize": "https://github.com/jwebcat/jResize.git"
   },
   "private": true
 }

@@ -76,5 +76,5 @@ As this is the first release of this plugin there are some limitations:
 1. the breakpoint names and pixel values are preset; you can override these when calling the jQuery function but there's little point in doing so as there's no matching CSS support for noscript users
 1. the breakrange keywords must be listed in order of narrowest to widest, i.e. `mobile,tablet,desktop,desktop-wide`
 1. the breakrange keywords are device specific and can't be changed
-1. tests needs to be rerun at each breakpoint by manually resizing the viewport
+1. tests must be run and passed at each breakpoint via the jResize toolbar
 1. the script assumes a base font size of `16px`

@@ -88,7 +88,7 @@ module("Breakrange", {
     },
     teardown: function() {
         "use strict";
-        $(testvars.target).ariaHiddenBreakrange('destroy');
+        $(testvars.target).ariaHiddenBreakrange('destroy'); // fails
     }
 });
 
