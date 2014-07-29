@@ -1,10 +1,9 @@
 {
   "name": "ct-jquery-ariaHiddenBreakrange",
   "description": "Accessibly control an element's visibility across a range of breakpoints.",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "dist",
   "license": "All rights reserved",
-  "ignore": [],
   "keywords": [],
   "authors": [
     {
@@ -26,5 +25,14 @@
     "susy": "https://github.com/ericam/susy.git#v1.0.9",
     "jResize": "https://github.com/jwebcat/jResize.git"
   },
-  "private": true
+  "private": true,
+  "ignore": [
+    "bower_components/",
+    "demos/",
+    "dev/",
+    "test/",
+    "config.rb",
+    "Gemfile",
+    "Gemfile.lock"
+  ]
 }
