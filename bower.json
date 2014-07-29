@@ -1,7 +1,7 @@
 {
   "name": "ct-jquery-ariaHiddenBreakrange",
   "description": "Accessibly control an element's visibility across a range of breakpoints.",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "main": "dist",
   "license": "All rights reserved",
   "keywords": [],
@@ -30,9 +30,11 @@
     "bower_components/",
     "demos/",
     "dev/",
+    "dist/ct-jquery-ariaHiddenBreakrange-demo.css",
     "test/",
     "config.rb",
     "Gemfile",
-    "Gemfile.lock"
+    "Gemfile.lock",
+    ".gitignore"
   ]
 }
