@@ -191,43 +191,45 @@
 
                         if ( media_query ) {
 
-                            // Monkey patch:
-                            // to allow unmatch (which usually runs on breakpoint transition) to run on DOM load as well
-                            // https://github.com/WickyNilliams/enquire.js/issues/86#issuecomment-28665171
-                            if ( typeof enquire.registerImmediate === 'undefined' ) {
+                            if ( typeof enquire !== 'undefined') {
 
-                              enquire.registerImmediate = function(query, options) {
-                                  options.setup = options.unmatch;
-                                  return this.register(query, options);
-                              };
+                                // Monkey patch:
+                                // to allow unmatch (which usually runs on breakpoint transition) to run on DOM load as well
+                                // https://github.com/WickyNilliams/enquire.js/issues/86#issuecomment-28665171
+                                // in order to use the IE polyfill please use ct-jquery-polyfill.js instead
+                                if ( typeof enquire.registerImmediate === 'undefined' ) {
+                                  enquire.registerImmediate = function(query, options) {
+                                      options.setup = options.unmatch;
+                                      return this.register(query, options);
+                                  };
+                                }
 
+                                enquire.registerImmediate( media_query, {
+
+                                    // when within the breakrange
+                                    match: function() {
+                                        //console.log('match');
+                                        $this.attr('aria-hidden', true);
+                                    },
+
+                                    // when outside the breakrange
+                                    unmatch : function() {
+                                        //console.log('unmatch');
+                                        $this.attr('aria-hidden', false);
+                                    },
+
+                                    // OPTIONAL, defaults to false
+                                    // If set to true, defers execution of the setup function
+                                    // until the first time the media query is matched
+                                    deferSetup : false // needs to be false for the monkey patch to work
+
+                                    // OPTIONAL
+                                    // If supplied, triggered when handler is unregistered.
+                                    // Place cleanup code here
+                                    //destroy : function() {}
+
+                                }, false); // false == !shouldDegrade
                             }
-
-                            enquire.registerImmediate( media_query, {
-
-                                // when within the breakrange
-                                match: function() {
-                                    //console.log('match');
-                                    $this.attr('aria-hidden', true);
-                                },
-
-                                // when outside the breakrange
-                                unmatch : function() {
-                                    //console.log('unmatch');
-                                    $this.attr('aria-hidden', false);
-                                },
-
-                                // OPTIONAL, defaults to false
-                                // If set to true, defers execution of the setup function
-                                // until the first time the media query is matched
-                                deferSetup : false // needs to be false for the monkey patch to work
-
-                                // OPTIONAL
-                                // If supplied, triggered when handler is unregistered.
-                                // Place cleanup code here
-                                //destroy : function() {}
-
-                            }, false); // false == !shouldDegrade
                         }
                     }
                 //});

@@ -5,8 +5,6 @@
 # Usage sans Grunt
 # Note: exec runs the executable that comes with a gem in your bundle
 # 1. bundle exec compass compile OR # bundle exec compass watch
-# 2. blessc resources/build/styles/screen.css resources/build/styles/screen.blessed.css
-# 3. rm resources/build/styles/screen.css
 
 # Require gems and Compass plugins
 require "compass"
