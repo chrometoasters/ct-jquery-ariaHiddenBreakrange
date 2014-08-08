@@ -93,49 +93,77 @@
                 // Create any dynamic properties
                 // settings.OTHER_PROPERTY = 'STRING_' + settings.PROPERTY;
 
-                // MAINTAIN CHAINABILITY by returning 'this'
-                // Within the function called by 'each()', the individual element being processed
-                // can be referenced in the local scope by 'this' and used as a jQuery object by '$(this)'
-                return this.each( function() {
+                // store a reference to this, that when can use in our complete callback
+                var _this = this;
 
-                    // Create a jQuery object to use with this individual element
-                    var $this = $(this);
+                if ( typeof Modernizr.load === 'undefined' ) {
+                    throw new Error('Modernizr.load is required by ariaHiddenBreakrange');
+                }
 
-                    // EVENT BINDINGS
-                    // Namespace bound events to ariaHiddenBreakrange
-                    // so we can safely unbind plugin events without accidentally
-                    // unbinding events that may have been bound outside of the plugin.
-                    //$(SOME_ELEMENT).bind('EVENT_NAME.ariaHiddenBreakrange', methods.METHOD_NAME);
+                Modernizr.load({
+                    test: window.matchMedia,
+                    yep: ( CT_VENDOR_PATH + 'enquire/dist/enquire.min.js?via=ct-jquery-ariaHiddenBreakrange.min.js' ),
+                    nope: [
+                        ( CT_VENDOR_PATH + 'media-match/media.match.min.js?via=ct-jquery-ariaHiddenBreakrange.min.js' ),
+                        ( CT_VENDOR_PATH + 'enquire/dist/enquire.min.js?via=ct-jquery-ariaHiddenBreakrange.min.js' )
+                    ],
+                    callback: function() { // callback|complete
 
-                    // DATA
-                    // it's best to use a single object literal to house all of your variables, and access that object by a single data namespace.
-                    // Attempt to grab saved settings, if they don't exist we'll get 'undefined'.
-                    // Note: this is the alternative approach to define an 'options' variable with/before 'methods'
-                    // so that it is available to other functions inside the closure.
-                    //
-                    // To set data:
-                    // 1.  $context.data('ariaHiddenBreakrange').NEW_PROPERTY_NAME = 'VALUE';
-                    // 2a. $context.data('ariaHiddenBreakrange').NEW_PROPERTY_SET = {};
-                    // 2b. $context.data('ariaHiddenBreakrange').PROPERTY_SET.NEW_PROPERTY_NAME = 'BAR';
-                    //
-                    // To retrieve data:
-                    // 1.  $context.data('ariaHiddenBreakrange').EXISTING_PROPERTY_NAME
-                    // 2a. $context.data('ariaHiddenBreakrange').EXISTING_PROPERTY_SET;
-                    // 2b. $context.data('ariaHiddenBreakrange').EXISTING_PROPERTY_SET.EXISTING_PROPERTY_NAME;
+                        //console.log('complete', typeof enquire); // MSIE8: 'completeobject'
 
-                    // store HTML5 data before the plugin overwrites it
-                    var data_ariaHiddenBreakrange = $this.data('ariahiddenbreakrange');
+                        // Monkey patch:
+                        // to allow unmatch (which usually runs on breakpoint transition) to run on DOM load as well
+                        // https://github.com/WickyNilliams/enquire.js/issues/86#issuecomment-28665171
+                        enquire.registerImmediate = function(query, options) {
+                            options.setup = options.unmatch;
+                            return this.register(query, options);
+                        };
 
-                    // Save our newly created settings with each element
-                    $this.data('ariaHiddenBreakrange', settings);
+                        // MAINTAIN CHAINABILITY by returning 'this'
+                        // Within the function called by 'each()', the individual element being processed
+                        // can be referenced in the local scope by 'this' and used as a jQuery object by '$(this)'
+                        return _this.each( function() {
 
-                    // store our saved HTML5 data with the new data set
-                    $this.data('ariaHiddenBreakrange').keyword = data_ariaHiddenBreakrange;
+                            // Create a jQuery object to use with this individual element
+                            var $this = $(this);
 
-                    // RUN CODE HERE
-                    // set up $this
-                    $this.ariaHiddenBreakrange('_setup');
+                            // EVENT BINDINGS
+                            // Namespace bound events to ariaHiddenBreakrange
+                            // so we can safely unbind plugin events without accidentally
+                            // unbinding events that may have been bound outside of the plugin.
+                            //$(SOME_ELEMENT).bind('EVENT_NAME.ariaHiddenBreakrange', methods.METHOD_NAME);
 
+                            // DATA
+                            // it's best to use a single object literal to house all of your variables, and access that object by a single data namespace.
+                            // Attempt to grab saved settings, if they don't exist we'll get 'undefined'.
+                            // Note: this is the alternative approach to define an 'options' variable with/before 'methods'
+                            // so that it is available to other functions inside the closure.
+                            //
+                            // To set data:
+                            // 1.  $context.data('ariaHiddenBreakrange').NEW_PROPERTY_NAME = 'VALUE';
+                            // 2a. $context.data('ariaHiddenBreakrange').NEW_PROPERTY_SET = {};
+                            // 2b. $context.data('ariaHiddenBreakrange').PROPERTY_SET.NEW_PROPERTY_NAME = 'BAR';
+                            //
+                            // To retrieve data:
+                            // 1.  $context.data('ariaHiddenBreakrange').EXISTING_PROPERTY_NAME
+                            // 2a. $context.data('ariaHiddenBreakrange').EXISTING_PROPERTY_SET;
+                            // 2b. $context.data('ariaHiddenBreakrange').EXISTING_PROPERTY_SET.EXISTING_PROPERTY_NAME;
+
+                            // store HTML5 data before the plugin overwrites it
+                            var data_ariaHiddenBreakrange = $this.data('ariahiddenbreakrange');
+
+                            // Save our newly created settings with each element
+                            $this.data('ariaHiddenBreakrange', settings);
+
+                            // store our saved HTML5 data with the new data set
+                            $this.data('ariaHiddenBreakrange').keyword = data_ariaHiddenBreakrange;
+
+                            // RUN CODE HERE
+                            // set up $this
+                            $this.ariaHiddenBreakrange('_setup');
+                        });
+
+                    }
                 });
 
             },

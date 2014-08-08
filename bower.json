@@ -18,7 +18,8 @@
   },
   "dependencies": {
     "jquery": "1.10.1",
-    "enquire": "https://github.com/WickyNilliams/enquire.js.git#2.1.0"
+    "enquire": "https://github.com/WickyNilliams/enquire.js.git#2.1.0",
+    "media-match": "https://github.com/weblinc/media-match.git#2.0.2"
   },
   "devDependencies": {
     "qunit": "https://github.com/components/qunit.git#v1.11.0",
