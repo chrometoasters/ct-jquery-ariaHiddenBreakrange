@@ -100,12 +100,13 @@
                     throw new Error('Modernizr.load is required by ariaHiddenBreakrange');
                 }
 
+                // could use ?via=ct-jquery-ariaHiddenBreakrange but could break caching
                 Modernizr.load({
                     test: window.matchMedia,
-                    yep: ( CT_VENDOR_PATH + 'enquire/dist/enquire.min.js?via=ct-jquery-ariaHiddenBreakrange.min.js' ),
+                    yep: ( CT_VENDOR_PATH + 'enquire/dist/enquire.min.js' ),
                     nope: [
-                        ( CT_VENDOR_PATH + 'media-match/media.match.min.js?via=ct-jquery-ariaHiddenBreakrange.min.js' ),
-                        ( CT_VENDOR_PATH + 'enquire/dist/enquire.min.js?via=ct-jquery-ariaHiddenBreakrange.min.js' )
+                        ( CT_VENDOR_PATH + 'media-match/media.match.min.js' ),
+                        ( CT_VENDOR_PATH + 'enquire/dist/enquire.min.js' )
                     ],
                     callback: function() { // callback|complete
 
