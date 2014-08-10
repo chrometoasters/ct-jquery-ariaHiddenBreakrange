@@ -61,6 +61,7 @@ Then call the JavaScript function with the default options like so:
 Ensure that the following assets are available on your page:
 
 1. `jquery.js/jquery.min.js` (dependency, via Bower)
+1. `media-match/media.match.min.js` (polyfill dependency, via Bower)
 1. `enquire.js/dist/enquire.min.js` (dependency, via Bower)
 1. `dist/ct-jquery-ariaHiddenBreakrange.css` (styles, bundled)
 1. `dist/ct-jquery-ariaHiddenBreakrange.min.js` (script, bundled)
