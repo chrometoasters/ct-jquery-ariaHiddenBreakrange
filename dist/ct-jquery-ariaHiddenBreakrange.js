@@ -96,11 +96,14 @@
                 // store a reference to this, that when can use in our complete callback
                 var _this = this;
 
+                // could use ?via=ct-jquery-ariaHiddenBreakrange but could break caching
+                /*
+                // Modernizr/YepNope is unreliable: https://github.com/chrometoasters/ct-jquery-ariaHiddenBreakrange/issues/1
+
                 if ( typeof Modernizr.load === 'undefined' ) {
                     throw new Error('Modernizr.load is required by ariaHiddenBreakrange');
                 }
 
-                // could use ?via=ct-jquery-ariaHiddenBreakrange but could break caching
                 Modernizr.load({
                     test: window.matchMedia,
                     yep: ( CT_VENDOR_PATH + 'enquire/dist/enquire.min.js' ),
@@ -111,6 +114,7 @@
                     callback: function() { // callback|complete
 
                         //console.log('complete', typeof enquire); // MSIE8: 'completeobject'
+                */
 
                         // Monkey patch:
                         // to allow unmatch (which usually runs on breakpoint transition) to run on DOM load as well
@@ -164,8 +168,10 @@
                             $this.ariaHiddenBreakrange('_setup');
                         });
 
+                /*
                     }
                 });
+                */
 
             },
 
