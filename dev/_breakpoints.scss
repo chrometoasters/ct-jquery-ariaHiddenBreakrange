@@ -11,5 +11,5 @@ $bp-tablet: em($bp-tablet_px); // portrait
 $bp-desktop_px: 980px;
 $bp-desktop: em($bp-desktop_px);
 
-$bp-desktop-wide_px: 1256px;
+$bp-desktop-wide_px: 1260px; // $(window).width() reports 1259px for XP SP3 IE8 @ 1280x1024
 $bp-desktop-wide: em($bp-desktop-wide_px);

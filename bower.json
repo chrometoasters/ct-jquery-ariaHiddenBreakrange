@@ -1,7 +1,7 @@
 {
   "name": "ct-jquery-ariaHiddenBreakrange",
   "description": "Accessibly control an element's visibility across a range of breakpoints.",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "main": "dist",
   "license": "All rights reserved",
   "keywords": [],
