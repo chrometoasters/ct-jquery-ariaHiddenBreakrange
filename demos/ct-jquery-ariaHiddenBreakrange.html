@@ -16,7 +16,8 @@
     <h1>ct-jquery-ariaHiddenBreakrange.js</h1>
     <div id="m-test">
       <p class="m-test--current">Current breakpoint: <strong class="m-test--breakpoint"></strong> <span class="m-test--dimensions"></span></p>
-      <h2>Breakranges which are <span aria-hidden="true">hidden</span> / <span aria-hidden="false">visible</span> at this breakpoint:</h2>
+      <p>This plugin <strong><span class="js_aria_hidden">hides</span></strong> content at certain breakranges.</p>
+      <h2>Breakranges which are <span class="js_aria_visible">visible</span> / <span class="js_aria_hidden">hidden</span> at this breakpoint:</h2>
       <ol>
         <li data-ariaHiddenBreakrange="mobile">mobile</li>
         <li data-ariaHiddenBreakrange="mobile,tablet">mobile,tablet</li>
@@ -39,6 +40,8 @@
 
       // Setup
       $(document).ready( function() {
+        $('.js_aria_hidden').attr('aria-hidden', true);
+        $('.js_aria_visible').attr('aria-hidden', false);
         $('[data-ariaHiddenBreakrange]').ariaHiddenBreakrange();
       });
     </script>

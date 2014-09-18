@@ -64,150 +64,252 @@ Styleguide 8.1
 
 // mobile
 
-.no-js [data-ariaHiddenBreakrange="mobile"],
-.no-js span[data-ariaHiddenBreakrange="mobile"] {
+[data-ariaHiddenBreakrange="mobile"],
+span[data-ariaHiddenBreakrange="mobile"] {
     // hide at
-    display: none !important;
+    .no-js & {
+        display: none !important;
+    }
 
     // show at
-    @include at-breakpoint( $bp-tablet lt-ie9 12 ) {
-        display: block !important;
+    @include at-breakpoint( $bp-tablet 12 ) {
+        .no-js & {
+            display: block !important;
+        }
     }
+    // IE8 fallback
+        .lt-ie9.no-js & {
+            display: block !important;
+        }
 }
-.no-js span[data-ariaHiddenBreakrange="mobile"] {
+span[data-ariaHiddenBreakrange="mobile"] {
     // show at
-    @include at-breakpoint( $bp-tablet lt-ie9 12 ) {
-        display: inline !important;
+    @include at-breakpoint( $bp-tablet 12 ) {
+        .no-js & {
+            display: inline !important;
+        }
     }
+    // IE8 fallback
+        .lt-ie9.no-js & {
+            display: inline !important;
+        }
 }
 
 // mobile,tablet
 
-.no-js [data-ariaHiddenBreakrange="mobile,tablet"],
-.no-js span[data-ariaHiddenBreakrange="mobile,tablet"] {
+[data-ariaHiddenBreakrange="mobile,tablet"],
+span[data-ariaHiddenBreakrange="mobile,tablet"] {
     // hide at
-    display: none !important;
+    .no-js & {
+        display: none !important;
+    }
 
     // show at
-    @include at-breakpoint( $bp-desktop lt-ie9 12 ) {
-        display: block !important;
+    @include at-breakpoint( $bp-desktop 12 ) {
+        .no-js & {
+            display: block !important;
+        }
     }
+    // IE8 fallback
+        .lt-ie9.no-js & {
+            display: block !important;
+        }
 }
-.no-js span[data-ariaHiddenBreakrange="mobile,tablet"] {
+span[data-ariaHiddenBreakrange="mobile,tablet"] {
     // show at
-    @include at-breakpoint( $bp-desktop lt-ie9 12 ) {
-        display: inline !important;
+    @include at-breakpoint( $bp-desktop 12 ) {
+        .no-js & {
+            display: inline !important;
+        }
     }
+    // IE8 fallback
+        .lt-ie9.no-js & {
+            display: inline !important;
+        }
 }
 
 // tablet
 
-.no-js [data-ariaHiddenBreakrange="tablet"],
-.no-js span[data-ariaHiddenBreakrange="tablet"] {
+[data-ariaHiddenBreakrange="tablet"],
+span[data-ariaHiddenBreakrange="tablet"] {
     // hide at
-    @include at-breakpoint( $bp-tablet lt-ie9 12 ) {
-        display: none !important;
+    @include at-breakpoint( $bp-tablet 12 ) {
+        .no-js & {
+            display: none !important;
+        }
     }
 
     // show at
-    @include at-breakpoint( $bp-desktop lt-ie9 12 ) {
-        display: block !important;
+    @include at-breakpoint( $bp-desktop 12 ) {
+        .no-js & {
+            display: block !important;
+        }
     }
+    // IE8 fallback
+        .lt-ie9.no-js & {
+            display: block !important;
+        }
 }
-.no-js span[data-ariaHiddenBreakrange="tablet"] {
+span[data-ariaHiddenBreakrange="tablet"] {
     // show at
-    @include at-breakpoint( $bp-desktop lt-ie9 12 ) {
-        display: inline !important;
+    @include at-breakpoint( $bp-desktop 12 ) {
+        .no-js & {
+            display: inline !important;
+        }
     }
+    // IE8 fallback
+        .lt-ie9.no-js & {
+            display: inline !important;
+        }
 }
 
 // mobile,tablet,desktop
 
-.no-js [data-ariaHiddenBreakrange="mobile,tablet,desktop"],
-.no-js span[data-ariaHiddenBreakrange="mobile,tablet,desktop"] {
+[data-ariaHiddenBreakrange="mobile,tablet,desktop"],
+span[data-ariaHiddenBreakrange="mobile,tablet,desktop"] {
     // hide at
-    display: none !important;
+    .no-js & {
+        display: none !important;
+    }
 
     // show at
-    @include at-breakpoint( $bp-desktop-wide lt-ie9 12 ) {
-        display: block !important;
+    @include at-breakpoint( $bp-desktop-wide 12 ) {
+        .no-js & {
+            display: block !important;
+        }
     }
+    // IE8 fallback
+        .lt-ie9.no-js & {
+            display: block !important;
+        }
 }
-.no-js span[data-ariaHiddenBreakrange="mobile,tablet,desktop"] {
+span[data-ariaHiddenBreakrange="mobile,tablet,desktop"] {
     // show at
-    @include at-breakpoint( $bp-desktop-wide lt-ie9 12 ) {
-        display: inline !important;
+    @include at-breakpoint( $bp-desktop-wide 12 ) {
+        .no-js & {
+            display: inline !important;
+        }
     }
+    // IE8 fallback
+        .lt-ie9.no-js & {
+            display: inline !important;
+        }
 }
 
 // tablet,desktop
 
-.no-js [data-ariaHiddenBreakrange="tablet,desktop"],
-.no-js span[data-ariaHiddenBreakrange="tablet,desktop"] {
+[data-ariaHiddenBreakrange="tablet,desktop"],
+span[data-ariaHiddenBreakrange="tablet,desktop"] {
     // hide at
-    @include at-breakpoint( $bp-tablet lt-ie9 12 ) {
-        display: none !important;
+    @include at-breakpoint( $bp-tablet 12 ) {
+        .no-js & {
+            display: none !important;
+        }
     }
 
     // show at
-    @include at-breakpoint( $bp-desktop-wide lt-ie9 12 ) {
-        display: block !important;
+    @include at-breakpoint( $bp-desktop-wide 12 ) {
+        .no-js & {
+            display: block !important;
+        }
     }
+    // IE8 fallback
+        .lt-ie9.no-js & {
+            display: block !important;
+        }
 }
-.no-js span[data-ariaHiddenBreakrange="tablet,desktop"] {
+span[data-ariaHiddenBreakrange="tablet,desktop"] {
     // show at
-    @include at-breakpoint( $bp-desktop-wide lt-ie9 12 ) {
-        display: inline !important;
+    @include at-breakpoint( $bp-desktop-wide 12 ) {
+        .no-js & {
+            display: inline !important;
+        }
     }
+    // IE8 fallback
+        .lt-ie9.no-js & {
+            display: inline !important;
+        }
 }
 
 // desktop
 
-.no-js [data-ariaHiddenBreakrange="desktop"],
-.no-js span[data-ariaHiddenBreakrange="desktop"] {
+[data-ariaHiddenBreakrange="desktop"],
+span[data-ariaHiddenBreakrange="desktop"] {
     // hide at
-    @include at-breakpoint( $bp-desktop lt-ie9 12 ) {
-        display: none !important;
+    @include at-breakpoint( $bp-desktop 12 ) {
+        .no-js & {
+            display: none !important;
+        }
     }
+    // IE8 fallback
+        .lt-ie9.no-js & {
+            display: none !important;
+        }
 
     // show at
-    @include at-breakpoint( $bp-desktop-wide lt-ie9 12 ) {
-        display: block !important;
+    @include at-breakpoint( $bp-desktop-wide 12 ) {
+        .no-js & {
+            display: block !important;
+        }
     }
 }
-.no-js span[data-ariaHiddenBreakrange="desktop"] {
+span[data-ariaHiddenBreakrange="desktop"] {
     // show at
-    @include at-breakpoint( $bp-desktop-wide lt-ie9 12 ) {
-        display: inline !important;
+    @include at-breakpoint( $bp-desktop-wide 12 ) {
+        .no-js & {
+            display: inline !important;
+        }
     }
+    // IE8 fallback
+        .lt-ie9.no-js & {
+            display: inline !important;
+        }
 }
 
 // tablet,desktop,desktop-wide
 
-.no-js [data-ariaHiddenBreakrange="tablet,desktop,desktop-wide"],
-.no-js span[data-ariaHiddenBreakrange="tablet,desktop,desktop-wide"] {
+[data-ariaHiddenBreakrange="tablet,desktop,desktop-wide"],
+span[data-ariaHiddenBreakrange="tablet,desktop,desktop-wide"] {
     // hide at
-    @include at-breakpoint( $bp-tablet lt-ie9 12 ) {
-        display: none !important;
+    @include at-breakpoint( $bp-tablet 12 ) {
+        .no-js & {
+            display: none !important;
+        }
     }
+    // IE8 fallback
+        .lt-ie9.no-js & {
+            display: none !important;
+        }
 }
 
 // desktop,desktop-wide
 
-.no-js [data-ariaHiddenBreakrange="desktop,desktop-wide"],
-.no-js span[data-ariaHiddenBreakrange="desktop,desktop-wide"] {
+[data-ariaHiddenBreakrange="desktop,desktop-wide"],
+span[data-ariaHiddenBreakrange="desktop,desktop-wide"] {
     // hide at
-    @include at-breakpoint( $bp-desktop lt-ie9 12 ) {
-        display: none !important;
+    @include at-breakpoint( $bp-desktop 12 ) {
+        .no-js & {
+            display: none !important;
+        }
     }
+    // IE8 fallback
+        .lt-ie9.no-js & {
+            display: none !important;
+        }
 }
 
 // desktop-wide
 
-.no-js [data-ariaHiddenBreakrange="desktop-wide"],
-.no-js span[data-ariaHiddenBreakrange="desktop-wide"] {
+[data-ariaHiddenBreakrange="desktop-wide"],
+span[data-ariaHiddenBreakrange="desktop-wide"] {
     // hide at
-    @include at-breakpoint( $bp-desktop-wide lt-ie9 12 ) {
-        display: none !important;
+    @include at-breakpoint( $bp-desktop-wide 12 ) {
+        .no-js & {
+            display: none !important;
+        }
     }
+    // IE8 fallback
+        .lt-ie9.no-js & {
+            display: none !important;
+        }
 }

@@ -79,20 +79,33 @@ TODO: typeof enquire.registerImmediate
 -------------------------------------------------------------------
 */
 
-module("Breakrange", {
+module("Hidden breakrange is", {
 
     setup: function() {
         "use strict";
         // Setup
         $(testvars.target).ariaHiddenBreakrange();
+
+        var window_width = $(window).width();
+
+        // TODO: use these to check that all tests work at all breakpoints
+        //var is_mobile = ( window_width >=0 && window_width <= 767 );
+        //var is_tablet = ( window_width >=768 && window_width <= 979 );
+        //var is_desktop = ( window_width >=980 && window_width <= 1255 );
+        //var is_desktop_wide = ( $(window).width() >= 1256 );
     },
     teardown: function() {
         "use strict";
         $(testvars.target).ariaHiddenBreakrange('destroy'); // fails
+
+        //var is_mobile = false;
+        //var is_tablet = false;
+        //var is_desktop = false;
+        //var is_desktop_wide = false;
     }
 });
 
-test("mobile: <= 767px", function() {
+test("mobile: >=0 && <= 767px", function() {
     "use strict";
 
     console.log( 'mobile test:', $(testvars.container).html() );
@@ -152,7 +165,7 @@ test("mobile: <= 767px", function() {
     );
 });
 
-test("tablet <= 979px", function() {
+test("tablet >=768 && <= 979px", function() {
     "use strict";
 
     console.log( 'tablet test:', $(testvars.container).html() );
@@ -212,7 +225,7 @@ test("tablet <= 979px", function() {
     );
 });
 
-test("desktop <= 1255px", function() {
+test("desktop >=980 && <= 1255px", function() {
     "use strict";
 
     console.log( 'desktop test:', $(testvars.container).html() );
@@ -272,7 +285,7 @@ test("desktop <= 1255px", function() {
     );
 });
 
-test("desktop-wide", function() {
+test("desktop-wide >= 1256", function() {
     "use strict";
 
     console.log( 'desktop-wide test:', $(testvars.container).html() );
